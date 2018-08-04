@@ -1,0 +1,27 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2) !important;
+    transition: 0.3s !important;
+    width: 80%;
+  }
+  .center{   
+    text-align: center!important;
+    margin: auto!important; 
+    width: 80%!important;
+    padding: 10px!important;
+       
+  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+  }
+  .center{   
+    text-align: center!important;
+    margin: auto!important; 
+    width: 80%!important;
+    padding: 10px!important;
+       
+  }
+
+    .left{
+    margin-left: 20%;
+        
+    }

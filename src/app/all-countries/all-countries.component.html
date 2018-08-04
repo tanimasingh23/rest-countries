@@ -1,0 +1,78 @@
+<div class="center row">
+  <label class="label col-md-4 offset-md-4">
+    <input class="form" placeholder="Search by Country Name" class="form-control text-center" [(ngModel)]="search.name">
+  </label>
+  <br>
+</div>
+
+<div class="row">
+  <div class="center">
+    <div *ngFor="let country of allCountries | filterBy: search" class="col-md-12">
+      <div *ngIf="country">
+        <div class="card book">
+          <img class="card-img-top" src={{country.flag}} alt="Card image" class="img-responsive-custom">
+          <div class="card-header text-center">
+            <h4>{{country.name | uppercase}}</h4>
+          </div>
+          <div *ngIf="country.capital" class="card-text text-center">
+            <strong>Capital : </strong>{{country.capital}}</div>
+          <div *ngIf="country.subregion" class="card-text text-center">
+            <strong>Sub-Region : </strong>{{country.subregion}}</div>
+          <div *ngIf="country.timezones" class="card-text text-center">
+            <strong>Timezones : </strong> {{country.timezones}}</div>
+          <div *ngIf="country.currencies" class="card-text text-center">
+            <strong>Currencies : </strong>
+            <div *ngFor="let currency of country.currencies;">
+              <div class="card-text text-center"> {{currency.name}}</div>
+            </div>
+          </div>
+          <div *ngIf="country.languages" class="card-text text-center">
+            <strong>Languages : </strong>
+            <div *ngFor="let language of country.languages;">
+              <div class="card-text  text-center"> {{language.name}}</div>
+            </div>
+          </div>
+          <div class="card-footer"></div>
+          <a [routerLink]="['/singleCountry',{code : country.alpha2Code}]" class="btn btn-success btn-md">View Country Details</a>
+        </div>
+        <br />
+      </div>
+    </div>
+
+
+    <div *ngIf="allData">
+      <div *ngFor="let country of filterData | filterBy: search" class="col-md-12">
+        <div *ngIf="country">
+          <div class="card book">
+            <img class="card-img-top" src={{country.flag}} alt="Card image" class="img-responsive-custom">
+            <div class="card-header text-center">
+              <h4>{{country.name | uppercase}}</h4>
+            </div>
+            <div *ngIf="country.capital" class="card-text text-center">
+              <strong>Capital : </strong>{{country.capital}}</div>
+            <div *ngIf="country.subregion" class="card-text text-center">
+              <strong>Sub-Region : </strong>{{country.subregion}}</div>
+            <div *ngIf="country.timezones" class="card-text text-center">
+              <strong>Timezones : </strong> {{country.timezones}}</div>
+            <div *ngIf="country.currencies" class="card-text text-center">
+              <strong>Currencies : </strong>
+              <div *ngFor="let currency of country.currencies;">
+                <div class="card-text text-center"> {{currency.name}}</div>
+              </div>
+            </div>
+            <div *ngIf="country.languages" class="card-text text-center">
+              <strong>Languages : </strong>
+              <div *ngFor="let language of country.languages;">
+                <div class="card-text  text-center"> {{language.name}}</div>
+              </div>
+            </div>
+            <div class="card-footer"></div>
+            <a [routerLink]="['/singleCountry',{code : country.alpha2Code}]" class="btn btn-success btn-md">View Country Details</a>
+          </div>
+          <br />
+        </div>
+      </div>
+    </div>
+    <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<div class="row" style="text-align:center">
+  <div class="center">
+    <div *ngFor="let country of countryInfo">
+      <h2>{{country.name}}</h2>
+      <div class="col-md-12">
+        <img src={{country.flag}} alt="Card image" style="width:95%" class="img-responsive-custom">
+      </div>
+
+      <div class="col-md-12" style="margin-top:4vh;">
+        <div *ngIf="country" class="card">
+          <h4 class="card-header">Basic Details of {{country.name}}</h4>
+          <div class="card-body">
+            <div *ngIf="country.capital" class="card-text">
+              <strong>Capital</strong> : {{country.capital}}</div>
+            <div *ngIf="country.nativeName" class="card-text">
+              <strong>Native Name</strong> : {{country.nativeName}}</div>
+            <div *ngIf="country.region" class="card-text">
+              <strong>Region</strong> : {{country.region}}</div>
+            <div *ngIf="country.subregion" class="card-text">
+              <strong>Sub-Region</strong> : {{country.subregion}}</div>
+            <div *ngIf="country.population" class="card-text">
+              <strong>Population</strong> : {{country.population}}</div>
+            <div *ngIf="country.area" class="card-text">
+              <strong>Area</strong> : {{country.area}}</div>
+            <div *ngIf="country.latlng" class="card-text">
+              <strong>Latitude,Longitude</strong> {{country.latlng}}</div>
+            <div *ngIf="country.borders" class="card-text">
+              <strong>Border(s)</strong> : {{country.borders}}</div>
+            <div *ngIf="country.numericCode" class="card-text">
+              <strong>Numeric Code</strong> : {{country.numericCode}}</div>
+            <div *ngIf="country.callingCodes" class="card-text">
+              <strong>Calling Code(s)</strong> : {{country.callingCodes}}</div>
+            <div *ngIf="country.alpha2Code" class="card-text">
+              <strong>Alpha2code</strong> : {{country.alpha2Code}}</div>
+            <div *ngIf="country.alpha3Code" class="card-text">
+              <strong>Alpha3code</strong> : {{country.alpha3Code}}</div>
+            <div *ngIf="country.demonym" class="card-text">
+              <strong>Demonym</strong> : {{country.demonym}}</div>
+            <div *ngIf="country.gini" class="card-text">
+              <strong>Gini</strong> : {{country.gini}}</div>
+            <div *ngIf="country.cioc" class="card-text">
+              <strong>CIOC</strong> : {{country.cioc}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" style="margin-top:4vh;">
+        <div *ngIf="country.currencies" class="card">
+          <h4 class="card-header">Currencies in {{country.name}}</h4>
+          <div class="card-body">
+            <div *ngFor="let currency of country.currencies;let i=index;">
+              <div class="card-text">
+                <strong>{{i+1}}. Name :</strong> {{currency.name}}</div>
+              <div class="card-text">
+                <strong>Code</strong> : {{currency.code}}</div>
+              <div class="card-text">
+                <strong>Symbol</strong> : {{currency.symbol}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" style="margin-top:4vh;">
+        <div *ngIf="country.languages" class="card">
+          <h4 class="card-header">Language(s) in {{country.name}}</h4>
+          <div class="card-body">
+            <div *ngFor="let language of country.languages; let i=index;">
+              <div class="card-text">
+                <strong>{{i+1}}. Name</strong> : {{language.name}}</div>
+              <div class="card-text">
+                <strong>Native Name</strong> : {{language.nativeName}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" style="margin-top:4vh;">
+        <div *ngIf="country.timezones" class="card">
+          <h4 class="card-header">Timezone(s) in {{country.name}}</h4>
+          <div class="card-body">
+            <div *ngFor="let timezone of country.timezones;let i=index;">
+              <div class="card-text">{{i+1}}. {{timezone}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" style="margin-top:4vh;">
+        <div *ngIf="country.regionalBlocs" class="card">
+          <h4 class="card-header">Regional Bloc(s) in {{country.name}}</h4>
+          <div class="card-body">
+            <div *ngFor="let block of country.regionalBlocs;let i=index;">
+              <div class="card-text">
+                <strong>{{i+1}}. Name</strong> : {{block.name}}</div>
+              <div class="card-text">
+                <strong>Other Name(s)</strong> : {{block.otherNames}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <a class="btn btn-warning" (click)="goBackToPreviousPage()">Go Back </a>
+    </div>
+  </div>

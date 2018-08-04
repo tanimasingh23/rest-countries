@@ -1,0 +1,40 @@
+.center{   
+    text-align: center!important;
+    margin: auto!important; 
+    width: 80%!important;
+    padding: 10px!important;
+       
+  }
+.left{
+    width: 80%;
+    margin:auto;
+    }
+
+.label{
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 1.25rem;
+  color: #495057;
+  background-color: #fff;
+
+}
+
+.bold{
+    font-weight: bold !important;
+}
+
+
+.disabled { 
+  background-color: transparent !important;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 576px){
+  h2{
+      font-size: 1.5rem !important;
+    }
+  h3{
+      font-size: 1.5rem !important;
+  }
+  .center{
+    width: 100% !important;
+  }
+}

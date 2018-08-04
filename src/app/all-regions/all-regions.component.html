@@ -1,0 +1,30 @@
+<div class="row center">
+  <select class="form form-control col-md-4 offset-md-1" [(ngModel)]="selected" (ngModelChange)="onSelectCurrency(selected)"
+    placeholder="Filter By Currency Name">
+    <option [ngValue]="undefined" selected>Filter By Currency Name</option>
+    <ng-container *ngFor="let country of allData;">
+      <option *ngFor="let currency of country.currencies"> {{currency.name}} </option>
+    </ng-container>
+  </select>
+  <select class="form form-control col-md-4 offset-md-1" [(ngModel)]="selected" (ngModelChange)="onSelectLanguage(selected)"
+    placeholder="Filter By Language Name">
+    <option [ngValue]="undefined" selected>Filter By Language Name</option>
+    <ng-container *ngFor="let country of allData;">
+      <option *ngFor="let language of country.languages"> {{language.name}} </option>
+    </ng-container>
+  </select>
+</div>
+<div class="row center">
+  <div *ngFor="let region of allRegions" class="col-md-6 center">
+    <div *ngIf="region">
+      <div class="card">
+        <div class="card-title text-center">
+          <h4>{{region | uppercase}}</h4>
+        </div>
+        <br />
+        <a [routerLink]="['/countryView',{ regionid : region }]" class="btn btn-success btn-md">View Countries</a>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
